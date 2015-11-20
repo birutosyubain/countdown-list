@@ -1,0 +1,62 @@
+<h1>Calendar#index</h1>
+<p>Find me in app/views/calendar/index.html.erb</p>
+
+  <fieldset>
+    <div class="col-md-6 col-md-offset-3">
+      <legend>タイトルが入る</legend>
+      <% @calendar.each do |f| %>
+
+      <div class="form-group">
+          <label class="col-lg-7 control-label">タイトル</label>
+          <div class="col-lg-3">
+              <div class="controls"><%= f.title %></div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-lg-7 control-label">開始時間</label>
+          <div class="col-lg-4">
+              <div class="controls"><%= f.startdate %></div>
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="col-lg-7 control-label">終了時間</label>
+          <div class="col-lg-4">
+              <div class="controls"><%= f.enddate %></div>
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="col-lg-7 control-label">カテゴリ</label>
+          <div class="col-lg-4">
+              <div class="radio">
+                <div class="controls">
+                    <% if f.category == "1" %>
+                      <p>重要</p>
+                    <% elsif f.category == "2" %>
+                      <p>仕事</p>
+                    <% else %>
+                      <p>遊び</p>
+                    <% end %>
+                 </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <label class="col-lg-7 control-label">メモ書き</label>
+          <div class="col-lg-4">
+              <div class="controls"><%= f.content %></div>
+          </div>
+      </div>
+      
+      <div class="submit-group text-right" >
+          <%= link_to "削除" , f , method: :delete,
+                                   data: { confirm: '削除してもよろしいですか？' },
+                                   :class => "btn btn-success" %>
+      </div>
+      
+    <% end %>
+  </div>
+  </fieldset>

@@ -1,0 +1,70 @@
+<div class="col-md-6 col-md-offset-3">
+    <%= form_for([@user, @calendar], html: {class: 'form-horizontal'}) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    
+    <div class="form-group">
+        <label class="col-lg-2 control-label">タイトル</label>
+        <div class="col-lg-10">
+            <div class="controls" id='datetimepicker'>
+              <%= f.text_field :title, :placeholder => "Title",
+                                       :class => "form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-2 control-label">開始時間</label>
+        <div class="col-lg-10">
+            <div class="controls" id='datetimepicker'>
+              <%= f.text_field :startdate, :class => 'datetimepicker form-control',
+                               placeholder: 'YYYY年MM月DD日 hh時mm分' %>
+            </div>
+        </div>
+    </div>
+      
+    <div class="form-group">
+        <label class="col-lg-2 control-label">終了時間</label>
+        <div class="col-lg-10">
+            <div class="controls" id='datetimepicker'>
+              <%= f.text_field :enddate, :class => 'datetimepicker form-control',
+                               placeholder: 'YYYY年MM月DD日 hh時mm分' %>
+            </div>
+        </div>
+    </div>
+      
+    <div class="form-group">
+        <label class="col-lg-2 control-label">カテゴリ</label>
+        <div class="col-lg-10">
+            <div class="radio">
+                <label><%= f.radio_button :category, "1" %>重要</label>
+                <label><%= f.radio_button :category, "2" %>仕事</label>
+                <label><%= f.radio_button :category, "3" %>遊び</label>
+            </div>
+        </div>
+    </div>
+      
+    <div class="form-group">
+        <label class="col-lg-2 control-label">メモ書き</label>
+        <div class="col-lg-10">
+            <%= f.text_area :content, :class => "form-control rows=3" %>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      $(function () {
+      $('.datetimepicker').datetimepicker({
+          sideBySide: true,
+          format: 'YYYY/MM/DD HH:mm',
+          showClear: true,
+          showClose: true
+      });
+      });
+    </script>
+      
+    <div class="submit-group text-right" >
+        <%= link_to '戻る', :back, :class => "btn btn-success" %> 
+        <%= f.submit "登録", :class => "btn btn-success" %>
+    </div>
+      
+    <% end %>
+</div>

@@ -3,7 +3,7 @@
 <head>
   <title>CountdownList</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -34,6 +34,7 @@
                   <li><%= link_to 'プロフィール変更', edit_user_registration_path %></li>
                 </ul>
               </li>
+              <li><%= link_to "新規登録", new_user_calendar_path(current_user) %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li><%= link_to "新規登録", new_user_registration_path %></li>

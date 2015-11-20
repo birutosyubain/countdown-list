@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   # ログイン画面をホームにする
   root 'home#index'
 
+  resources :users do
+    resources :calendars
+  end
+
 end

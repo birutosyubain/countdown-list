@@ -15,5 +15,8 @@
 //= require jquery.countdown
 //= require jquery.countdown-ja
 //= require bootstrap
+//= require moment
+//= require bootstrap-datetimepicker
 //= require turbolinks
+//= require jquery.flipcountdown
 //= require_tree .
