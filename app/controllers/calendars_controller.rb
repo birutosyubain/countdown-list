@@ -9,7 +9,6 @@ class CalendarsController < ApplicationController
   end
   
   def show
-    @calendar = Calendar.all
   end
   
   def edit

@@ -1,2 +1,51 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h4>
+                特定の時間や、特定の状態になるまでの秒数や日数を数えるカウントダウンをリスト登録し、自身の時間を管理するためのサービスです。
+            </h4>
+            
+            <div class="col-sm-8">
+                <h3>カウントダウン（東京五輪まで）</h3>
+                <table style="border: 0px;">
+                    <tbody>
+                        <tr>
+                            <td style="width: 145px; text-align: center;"><strong>日</strong></td>
+                            <td style="width: 90px; text-align: center;"><strong>時間</strong></td>
+                            <td style="width: 80px; text-align: center;"><strong>分</strong></td>
+                            <td style="width: 80px; text-align: center;"><strong>秒</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div id="timer"></div>
+            </div>
+            
+            <div class="col-sm-4">
+                <br /><br /><br /><br />
+                <%= link_to 'DEMO', home_show_path, :class => "btn btn-info btn-lg" %>
+            </div>
+
+        </div>
+        
+        <div class="col-sm-8 col-sm-offset-2">
+            <h4>※注意※</h4>
+            <p>
+                ️このサービスは開発未経験者が作成しております。<br />
+                ️不利益損害が生じた場合及びサービスの利用による損害等は、当方でその責任を一切負いかねます
+                ので予めご了承願います。当ホームページの利用者は自己の責任で当のサービスを利用・検討してください。
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function($){
+    $('#clock').flipcountdown({size:'xs'});
+    $('#timer').flipcountdown({
+        size:'md',
+        beforeDateTime:'7/24/2020 00:00:01'
+    });
+  });
+</script>

@@ -1,2 +1,31 @@
 <h1>Home#show</h1>
 <p>Find me in app/views/home/show.html.erb</p>
+
+<div class="container-fluid">
+    <div class="col-md-7 col-md-offset-2">
+        <h2>表示画面</h2>
+        <% @calendar.each do |f| %>
+        <div class="form-group">
+            <div class="col-md-3">
+                <div class="controls"><%= f.title %></div>
+                <div id="timer<%= f.id %>"></div>
+                <div class="submit-group text-right" >
+                    <%= link_to "編集", "#", :class => "btn btn-success" %>
+                    <%= link_to "削除", "#", :class => "btn btn-success" %>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+          $(function($){
+              $('#clock').flipcountdown();
+              $('#timer<%= f.id %>').flipcountdown({
+                  size:'xs',
+                  beforeDateTime:'<%= f.enddate %>'
+              });
+          });
+        </script>
+        
+    </div>
+      
+    <% end %>
+</div>
